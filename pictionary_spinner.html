@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Pictionary Spinner</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: #f0f8ff;
+        }
+        h1 {
+            color: #333;
+        }
+        select, button {
+            font-size: 1.2em;
+            padding: 10px;
+            margin: 10px;
+        }
+        #prompt {
+            margin-top: 30px;
+            font-size: 2em;
+            color: #0078D7;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>🎨 Pictionary Spinner</h1>
+    <label for="difficulty">Choose Difficulty:</label>
+    <select id="difficulty">
+        <option value="Easy">Easy</option>
+        <option value="Medium">Medium</option>
+        <option value="Hard">Hard</option>
+    </select>
+    <br>
+    <button onclick="spin()">🎯 Spin the Wheel!</button>
+    <div id="prompt">Your prompt will appear here...</div>
+
+    <script>
+        const prompts = {'Easy': ['Sun', 'Tree', 'House', 'Cat', 'Pizza', 'Book', 'Car', 'Balloon', 'Ice cream', 'Hat'], 'Medium': ['Airplane', 'Guitar', 'Snowman', 'Toothbrush', 'Spider', 'Robot', 'Castle', 'Fireworks', 'Roller coaster', 'Lighthouse'], 'Hard': ['Time machine', 'Astronaut', 'Haunted house', 'Traffic jam', 'Fortune teller', 'Tornado', 'Movie theater', 'Magic trick', 'Zoom meeting', 'Escape room']};
+
+        function spin() {
+            const difficulty = document.getElementById("difficulty").value;
+            const options = prompts[difficulty];
+            const randomIndex = Math.floor(Math.random() * options.length);
+            const selected = options[randomIndex];
+            document.getElementById("prompt").innerText = selected;
+        }
+    </script>
+</body>
+</html>
